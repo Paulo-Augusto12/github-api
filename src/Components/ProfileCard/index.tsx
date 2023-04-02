@@ -15,7 +15,7 @@ export function ProfileCard() {
           sx={{
             display: "flex",
             flexDirection: "row",
-            padding: "0.75rem",
+            padding: "1.75rem",
             gap: "2.25rem",
           }}
         >
