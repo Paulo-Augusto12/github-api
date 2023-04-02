@@ -7,8 +7,8 @@ function App() {
   return (
     <div
       style={{
-        height: "100vh",
         backgroundColor: theme.colors.backgroundColor,
+        padding: "2rem",
       }}
     >
       <HomePage />
