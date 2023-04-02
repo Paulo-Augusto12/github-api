@@ -6,12 +6,14 @@ import { Box } from "./Components/Box";
 import { GithubLogo, MagnifyingGlass } from "@phosphor-icons/react";
 import { TextField } from "./Components/TextInput";
 import { Button } from "./Components/Button";
-import { Card } from "./Components/Card";
 import { ProfileCard } from "./Components/ProfileCard";
 import { RepositoryCard } from "./Components/RepositoryCard";
+import { useHomePage } from "./hook/useHomePage";
 
 export function HomePage() {
   const theme = useTheme();
+  const hook = useHomePage();
+
   return (
     <Container>
       <Box
@@ -56,6 +58,10 @@ export function HomePage() {
           {/* Search bar */}
           <Box sx={{ display: "flex", flexDirection: "row", gap: "0.9375rem" }}>
             <TextField
+              value={hook.usernameInput}
+              onChange={(e) => {
+                hook.setUsernameInput(e.target.value);
+              }}
               sx={{
                 width: "100%",
                 backgroundColor: theme.colors.searchBar,
@@ -79,6 +85,7 @@ export function HomePage() {
                   backgroundColor: "#044162",
                 },
               }}
+              onClick={() => hook.handleGetuserData()}
             >
               <MagnifyingGlass size={32} />
             </Button>
