@@ -82,7 +82,6 @@ export function RepositoryCard({
                   textDecoration: "none",
                   color: theme.colors.linkColor,
                 }}
-                target="blank"
               >
                 {link}
               </Link>
