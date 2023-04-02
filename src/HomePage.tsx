@@ -3,6 +3,7 @@ import { Container } from "./Components/container";
 import { useTheme } from "./hook/useTheme";
 import { Typography } from "./Components/Typography";
 import { Box } from "./Components/Box";
+import { GithubLogo } from "@phosphor-icons/react";
 
 export function HomePage() {
   const theme = useTheme();
@@ -15,15 +16,26 @@ export function HomePage() {
           paddingTop: "9.6875rem",
         }}
       >
-        <Typography
+        <Box
           sx={{
-            color: theme.colors.fontColor,
-            fontWeight: theme.weigths.bold,
-            fontSize: theme.fonts.large,
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "center",
+            justifyContent: "space-between",
+            width: "30%",
           }}
         >
-          Hello world
-        </Typography>
+          <Typography
+            sx={{
+              color: theme.colors.fontColor,
+              fontWeight: theme.weigths.bold,
+              fontSize: theme.fonts.large,
+            }}
+          >
+            Github API App
+          </Typography>
+          <GithubLogo size={32} color={theme.colors.fontColor} />
+        </Box>
       </Box>
     </Container>
   );
