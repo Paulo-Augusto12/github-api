@@ -80,7 +80,7 @@ export function RepositoryCard() {
             </Typography>
 
             <Typography sx={{ color: theme.colors.fontColor }}>
-              The main language of this repository is : Typescript
+              The main language of this repository is : <b>Typescript</b>
             </Typography>
 
             <Typography
