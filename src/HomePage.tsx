@@ -9,6 +9,7 @@ import { Button } from "./Components/Button";
 import { ProfileCard } from "./Components/ProfileCard";
 import { RepositoryCard } from "./Components/RepositoryCard";
 import { useHomePage } from "./hook/useHomePage";
+import { NotFound } from "./Components/NotFound";
 
 export function HomePage() {
   const theme = useTheme();
@@ -98,6 +99,11 @@ export function HomePage() {
           </Box>
         </Box>
         {/* ProfileCard Container */}
+        {hook.loading !== undefined && hook.userFound === undefined && (
+          <Box>
+            <NotFound />
+          </Box>
+        )}
         {hook.userFound !== undefined && (
           <ProfileCard
             profileImage={hook.userFound.profileImage}
