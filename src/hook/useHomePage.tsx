@@ -25,7 +25,7 @@ export function useHomePage() {
 
     setUserFound(data);
 
-    console.log(userFound, "user");
+    setUsernameInput("");
   }
 
   return {
