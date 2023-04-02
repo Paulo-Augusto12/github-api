@@ -4,7 +4,24 @@ import { Box } from "../Box";
 import { Card } from "../Card";
 import { Typography } from "../Typography";
 
-export function ProfileCard() {
+interface IProfileCardProps {
+  profileImage: string;
+  username: string;
+  profileLink: string;
+  userDescription: string;
+  followers: number;
+  following: number;
+  repos: number;
+}
+export function ProfileCard({
+  followers,
+  following,
+  profileImage,
+  profileLink,
+  repos,
+  userDescription,
+  username,
+}: IProfileCardProps) {
   const theme = useTheme();
   return (
     <Box
@@ -28,13 +45,20 @@ export function ProfileCard() {
         >
           <Box>
             <img
-              src="https://avatars.githubusercontent.com/u/102987686?v=4"
+              src={profileImage}
               width={162}
               height={170}
               style={{ borderRadius: 215 }}
             />
           </Box>
-          <Box sx={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              gap: "1.5rem",
+              width: "100%",
+            }}
+          >
             <Typography
               variant="h4"
               sx={{
@@ -42,7 +66,7 @@ export function ProfileCard() {
                 fontWeight: theme.weigths.bold,
               }}
             >
-              Paulo-Augusto12
+              {username}
             </Typography>
             <Typography sx={{ color: theme.colors.linkColor }}>
               <Link
@@ -50,10 +74,10 @@ export function ProfileCard() {
                   textDecoration: "none",
                   color: theme.colors.linkColor,
                 }}
-                href="https://github.com/Paulo-Augusto12"
+                href={profileLink}
                 target="blank"
               >
-                https://github.com/Paulo-Augusto12
+                {profileLink}
               </Link>
             </Typography>
             <Typography
@@ -62,8 +86,7 @@ export function ProfileCard() {
                 color: theme.colors.fontColor,
               }}
             >
-              Um programador iniciante, procurando aprender tudo o que for
-              possível aos poucos.
+              {userDescription}
             </Typography>
             <Box
               sx={{
@@ -78,7 +101,7 @@ export function ProfileCard() {
                   fontWeight: theme.weigths.medium,
                 }}
               >
-                1 Followers
+                {followers} Followers
               </Typography>
               <Typography
                 sx={{
@@ -86,7 +109,7 @@ export function ProfileCard() {
                   fontWeight: theme.weigths.medium,
                 }}
               >
-                1 Following
+                {following} Following
               </Typography>
               <Typography
                 sx={{
@@ -94,7 +117,7 @@ export function ProfileCard() {
                   fontWeight: theme.weigths.medium,
                 }}
               >
-                30 Repos
+                {repos} Repos
               </Typography>
             </Box>
           </Box>
