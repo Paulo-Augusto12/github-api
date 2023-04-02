@@ -1,6 +1,6 @@
 export interface IRepo {
   name: string;
-  stars: string;
+  stars: number;
   link: string;
   description: string;
   language: string;
