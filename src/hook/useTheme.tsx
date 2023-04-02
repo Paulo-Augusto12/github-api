@@ -6,6 +6,7 @@ export function useTheme() {
     cardColor: "#116694",
     fontColor: "#A8DADC",
     linkColor: "#457B9D",
+    searchBar: "#116694",
   };
 
   const fonts = {
