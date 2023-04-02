@@ -10,7 +10,7 @@ interface IRepositoryCardProps {
   name: string;
   link: string;
   stars: number;
-  description: number;
+  description: string;
   language: string;
   homepage: string;
 }
