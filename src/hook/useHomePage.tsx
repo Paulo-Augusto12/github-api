@@ -6,6 +6,7 @@ import { GetUserdata } from "../api/getUserData";
 export function useHomePage() {
   const [userFound, setUserFound] = useState<IUser>();
   const [usernameInput, setUsernameInput] = useState("");
+
   function userDTOToUserState(DTO: IUserDTO): IUser {
     return {
       profileImage: DTO.avatar_url,
