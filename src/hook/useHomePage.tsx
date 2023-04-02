@@ -54,8 +54,6 @@ export function useHomePage() {
       const data = RepoDTOtoRepoState(response);
 
       setUserRepos(data);
-
-      console.log(userRepos);
     }
   }
 
@@ -68,5 +66,6 @@ export function useHomePage() {
     usernameInput,
     setUsernameInput,
     handleGetuserData,
+    userRepos,
   };
 }
