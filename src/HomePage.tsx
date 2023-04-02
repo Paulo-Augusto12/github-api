@@ -24,6 +24,7 @@ export function HomePage() {
           flexDirection: "column",
           alignItems: "center",
           gap: "3.5625rem",
+          height: "100vh",
         }}
       >
         {/* App Header Container */}
@@ -92,8 +93,18 @@ export function HomePage() {
           </Box>
         </Box>
         {/* ProfileCard Container */}
-        <ProfileCard />
-        <RepositoryCard />
+        {hook.userFound !== undefined && (
+          <ProfileCard
+            profileImage={hook.userFound.profileImage}
+            username={hook.userFound.name}
+            profileLink={hook.userFound.githubLink}
+            userDescription={hook.userFound.description}
+            followers={hook.userFound.followers}
+            following={hook.userFound.following}
+            repos={hook.userFound.repos}
+          />
+        )}
+        {/* <RepositoryCard /> */}
       </Box>
     </Container>
   );
