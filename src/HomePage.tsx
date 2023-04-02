@@ -1,11 +1,10 @@
 import React from "react";
+import { Container } from "./Components/container";
 
 export function HomePage() {
   return (
-    <div>
-      <div>
-        <h1>Hello</h1>
-      </div>
-    </div>
+    <Container>
+      <h1>Hello</h1>
+    </Container>
   );
 }
