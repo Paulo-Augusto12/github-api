@@ -4,8 +4,8 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "prettier --write src. && vite",
-    "build": "prettier --write src. && tsc && vite build",
+    "dev": "prettier --write src . && vite",
+    "build": "prettier --write src . && tsc && vite build",
     "preview": "vite preview"
   },
   "dependencies": {
