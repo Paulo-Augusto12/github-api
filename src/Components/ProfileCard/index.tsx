@@ -22,8 +22,8 @@ export function ProfileCard() {
           <Box>
             <img
               src="https://avatars.githubusercontent.com/u/102987686?v=4"
-              width={131}
-              height={135}
+              width={162}
+              height={170}
               style={{ borderRadius: 215 }}
             />
           </Box>
