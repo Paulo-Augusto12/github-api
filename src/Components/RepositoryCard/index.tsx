@@ -6,7 +6,22 @@ import { Typography } from "../Typography";
 import { Star } from "@phosphor-icons/react";
 import { Link } from "@mui/material";
 
-export function RepositoryCard() {
+interface IRepositoryCardProps {
+  name: string;
+  link: string;
+  stars: number;
+  description: number;
+  language: string;
+  homepage: string;
+}
+export function RepositoryCard({
+  name,
+  link,
+  stars,
+  description,
+  language,
+  homepage,
+}: IRepositoryCardProps) {
   const theme = useTheme();
   return (
     <Box sx={{ width: "80%" }}>
@@ -35,7 +50,7 @@ export function RepositoryCard() {
                 fontWeight: theme.weigths.bold,
               }}
             >
-              Alura Studies
+              {name}
             </Typography>
             <Box
               sx={{
@@ -52,7 +67,7 @@ export function RepositoryCard() {
                   fontWeight: theme.weigths.medium,
                 }}
               >
-                2
+                {stars}
               </Typography>
               <Star size={38} color={theme.colors.fontColor} />
             </Box>
@@ -62,25 +77,22 @@ export function RepositoryCard() {
           >
             <Typography>
               <Link
-                href="https://github.com/Paulo-Augusto12/Alura-Studies"
+                href={link}
                 style={{
                   textDecoration: "none",
                   color: theme.colors.linkColor,
                 }}
               >
-                https://github.com/Paulo-Augusto12/Alura-Studies
+                {link}
               </Link>
             </Typography>
 
             <Typography sx={{ color: theme.colors.fontColor }}>
-              Aplicação web desenvolvida utilizando react. A aplicação possui
-              duas funcionalidades, gerar tarefas aleatórias para o usuário, ou
-              gerar tarefas baseadas em um escopo de opções cedidas pela Api,
-              com a escolha do escopo desejado sendo escolhida pelo usuário
+              {description}
             </Typography>
 
             <Typography sx={{ color: theme.colors.fontColor }}>
-              The main language of this repository is : <b>Typescript</b>
+              The main language of this repository is : <b>{language}</b>
             </Typography>
 
             <Typography
@@ -92,13 +104,13 @@ export function RepositoryCard() {
             >
               This repository have a homepage. Check it out :
               <Link
-                href="This repository have a homepage. Check it out : https://anti-boredom-app.vercel.app/"
+                href={homepage}
                 style={{
                   textDecoration: "none",
                   color: theme.colors.linkColor,
                 }}
               >
-                https://anti-boredom-app.vercel.app/
+                {homepage}
               </Link>
             </Typography>
           </Box>
