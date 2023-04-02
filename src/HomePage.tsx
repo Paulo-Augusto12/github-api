@@ -77,6 +77,11 @@ export function HomePage() {
                 },
               }}
               placeholder="Search for a Github user"
+              onKeyDown={async (e) => {
+                if (e.key === "Enter") {
+                  await hook.handleGetuserData();
+                }
+              }}
             />
             <Button
               sx={{
