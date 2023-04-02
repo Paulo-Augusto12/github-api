@@ -8,6 +8,7 @@ import { TextField } from "./Components/TextInput";
 import { Button } from "./Components/Button";
 import { Card } from "./Components/Card";
 import { ProfileCard } from "./Components/ProfileCard";
+import { RepositoryCard } from "./Components/RepositoryCard";
 
 export function HomePage() {
   const theme = useTheme();
@@ -85,6 +86,7 @@ export function HomePage() {
         </Box>
         {/* ProfileCard Container */}
         <ProfileCard />
+        <RepositoryCard />
       </Box>
     </Container>
   );
