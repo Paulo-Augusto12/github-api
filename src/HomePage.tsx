@@ -6,6 +6,8 @@ import { Box } from "./Components/Box";
 import { GithubLogo, MagnifyingGlass } from "@phosphor-icons/react";
 import { TextField } from "./Components/TextInput";
 import { Button } from "./Components/Button";
+import { Card } from "./Components/Card";
+import { ProfileCard } from "./Components/ProfileCard";
 
 export function HomePage() {
   const theme = useTheme();
@@ -16,6 +18,9 @@ export function HomePage() {
           display: "flex",
           justifyContent: "center",
           paddingTop: "9.6875rem",
+          flexDirection: "column",
+          alignItems: "center",
+          gap: "3.5625rem",
         }}
       >
         {/* App Header Container */}
@@ -78,6 +83,8 @@ export function HomePage() {
             </Button>
           </Box>
         </Box>
+        {/* ProfileCard Container */}
+        <ProfileCard />
       </Box>
     </Container>
   );
