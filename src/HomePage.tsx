@@ -24,7 +24,7 @@ export function HomePage() {
           flexDirection: "column",
           alignItems: "center",
           gap: "3.5625rem",
-          height: "100vh",
+          height: hook.userRepos.length ? "" : "100vh",
         }}
       >
         {/* App Header Container */}
@@ -104,7 +104,16 @@ export function HomePage() {
             repos={hook.userFound.repos}
           />
         )}
-        {/* <RepositoryCard /> */}
+        {hook.userRepos.map((repo) => (
+          <RepositoryCard
+            description={repo.description}
+            name={repo.name}
+            homepage={repo.homepageLink}
+            language={repo.language}
+            link={repo.link}
+            stars={repo.stars}
+          />
+        ))}
       </Box>
     </Container>
   );
