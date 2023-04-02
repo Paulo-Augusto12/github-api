@@ -85,6 +85,8 @@ export function HomePage() {
         </Box>
         {/* ProfileCard Container */}
         <ProfileCard />
+        <ProfileCard />
+        <ProfileCard />
       </Box>
     </Container>
   );
