@@ -7,7 +7,14 @@ import { Typography } from "../Typography";
 export function ProfileCard() {
   const theme = useTheme();
   return (
-    <Box sx={{ width: "80%" }}>
+    <Box
+      sx={{
+        width: "80%",
+        display: "flex",
+        flexDirection: "column",
+        gap: "3.5625rem",
+      }}
+    >
       <Card
         sx={{ backgroundColor: theme.colors.cardColor, borderRadius: "1rem" }}
       >
@@ -93,6 +100,17 @@ export function ProfileCard() {
           </Box>
         </Box>
       </Card>
+      <Box>
+        <Typography
+          sx={{
+            color: theme.colors.fontColor,
+            fontWeight: theme.weigths.bold,
+          }}
+          variant="h5"
+        >
+          Check out some projects developed by this user
+        </Typography>
+      </Box>
     </Box>
   );
 }
