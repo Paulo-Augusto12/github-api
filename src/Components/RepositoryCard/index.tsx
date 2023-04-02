@@ -10,9 +10,9 @@ interface IRepositoryCardProps {
   name: string;
   link: string;
   stars: number;
-  description: string;
+  description: string | null;
   language: string;
-  homepage: string;
+  homepage: string | null;
 }
 export function RepositoryCard({
   name,
@@ -82,37 +82,61 @@ export function RepositoryCard({
                   textDecoration: "none",
                   color: theme.colors.linkColor,
                 }}
+                target="blank"
               >
                 {link}
               </Link>
             </Typography>
-
-            <Typography sx={{ color: theme.colors.fontColor }}>
-              {description}
-            </Typography>
+            {description !== null ? (
+              <Typography sx={{ color: theme.colors.fontColor }}>
+                {description.trim()
+                  ? description
+                  : "Unfortunally this repository doesn’t have a description"}
+              </Typography>
+            ) : (
+              <Typography sx={{ color: theme.colors.fontColor }}>
+                Unfortunally this repository doesn’t have a description
+              </Typography>
+            )}
 
             <Typography sx={{ color: theme.colors.fontColor }}>
               The main language of this repository is : <b>{language}</b>
             </Typography>
 
-            <Typography
-              sx={{
-                color: theme.colors.fontColor,
-                display: "flex",
-                gap: "0.625rem",
-              }}
-            >
-              This repository have a homepage. Check it out :
-              <Link
-                href={homepage}
-                style={{
-                  textDecoration: "none",
-                  color: theme.colors.linkColor,
+            {homepage !== null ? (
+              <Typography
+                sx={{
+                  color: theme.colors.fontColor,
+                  display: "flex",
+                  gap: "0.625rem",
                 }}
               >
-                {homepage}
-              </Link>
-            </Typography>
+                {homepage.trim()
+                  ? "This repository have a homepage. Check it out :"
+                  : "Unfortunally this repository doesn’t have a homepage. Maybe the deploy build of this app is still in development"}
+                <Link
+                  href={homepage}
+                  style={{
+                    textDecoration: "none",
+                    color: theme.colors.linkColor,
+                  }}
+                  target="blank"
+                >
+                  {homepage}
+                </Link>
+              </Typography>
+            ) : (
+              <Typography
+                sx={{
+                  color: theme.colors.fontColor,
+                  display: "flex",
+                  gap: "0.625rem",
+                }}
+              >
+                Unfortunally this repository doesn’t have a homepage. Maybe the
+                deploy build of this app is still in development
+              </Typography>
+            )}
           </Box>
         </Box>
       </Card>
