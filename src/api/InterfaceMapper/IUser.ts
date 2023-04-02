@@ -6,4 +6,5 @@ export interface IUser {
   followers: number;
   following: number;
   repos: number;
+  reposLink: string;
 }
