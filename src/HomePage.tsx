@@ -45,7 +45,7 @@ export function HomePage() {
             >
               Github API App
             </Typography>
-            <GithubLogo size={32} color={theme.colors.fontColor} />
+            <GithubLogo size={48} color={theme.colors.fontColor} />
           </Box>
           {/* Search bar */}
           <Box sx={{ display: "flex", flexDirection: "row", gap: "0.9375rem" }}>
