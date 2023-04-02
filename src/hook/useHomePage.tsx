@@ -2,9 +2,13 @@ import React, { useEffect, useState } from "react";
 import { IUserDTO } from "../api/DTO/userDTO";
 import { IUser } from "../api/InterfaceMapper/IUser";
 import { GetUserdata } from "../api/getUserData";
+import { IRepo } from "../api/InterfaceMapper/IRepo";
+import { IRepoDTO } from "../api/DTO/repoDTO";
+import { GetRepositoryData } from "../api/getRepositoryData";
 
 export function useHomePage() {
   const [userFound, setUserFound] = useState<IUser>();
+  const [userRepos, setUserRepos] = useState<IRepo[]>([]);
   const [usernameInput, setUsernameInput] = useState("");
 
   function userDTOToUserState(DTO: IUserDTO): IUser {
@@ -16,7 +20,21 @@ export function useHomePage() {
       followers: DTO.followers,
       following: DTO.following,
       repos: DTO.public_repos,
+      reposLink: DTO.repos_url,
     };
+  }
+
+  function RepoDTOtoRepoState(DTO: IRepoDTO[]): IRepo[] {
+    return DTO.map((repo) => {
+      return {
+        description: repo.description,
+        name: repo.name,
+        homepageLink: repo.homepage,
+        stars: repo.stargazers_count,
+        language: repo.language,
+        link: repo.html_url,
+      };
+    });
   }
 
   async function handleGetuserData() {
@@ -28,6 +46,22 @@ export function useHomePage() {
 
     setUsernameInput("");
   }
+
+  async function handleGetUserReposData() {
+    if (userFound) {
+      const response = await GetRepositoryData(userFound.reposLink);
+
+      const data = RepoDTOtoRepoState(response);
+
+      setUserRepos(data);
+
+      console.log(userRepos);
+    }
+  }
+
+  useEffect(() => {
+    handleGetUserReposData();
+  }, [userFound]);
 
   return {
     userFound,
