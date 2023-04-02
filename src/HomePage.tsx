@@ -99,11 +99,11 @@ export function HomePage() {
           </Box>
         </Box>
         {/* ProfileCard Container */}
-        {hook.loading !== undefined && hook.userFound === undefined && (
+        {/* {hook.loading === undefined && hook.userFound === undefined && (
           <Box>
             <NotFound />
           </Box>
-        )}
+        )} */}
         {hook.userFound !== undefined && (
           <ProfileCard
             profileImage={hook.userFound.profileImage}

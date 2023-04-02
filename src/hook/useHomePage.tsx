@@ -10,7 +10,7 @@ export function useHomePage() {
   const [userFound, setUserFound] = useState<IUser>();
   const [userRepos, setUserRepos] = useState<IRepo[]>([]);
   const [usernameInput, setUsernameInput] = useState("");
-  const [loading, setLoading] = useState<Boolean>();
+  // const [loading, setLoading] = useState<Boolean | undefined>(false);
 
   function userDTOToUserState(DTO: IUserDTO): IUser {
     return {
@@ -39,18 +39,20 @@ export function useHomePage() {
   }
 
   async function handleGetuserData() {
+    // setLoading(true);
     setUserFound(undefined);
     setUserRepos([]);
-    setLoading(true);
 
     const response = await GetUserdata(usernameInput);
+    if (response) {
+      const data = userDTOToUserState(response);
 
-    const data = userDTOToUserState(response);
-
-    setUserFound(data);
-
-    setUsernameInput("");
-    setLoading(false);
+      setUserFound(data);
+      setUsernameInput("");
+      // setLoading(false);
+    } else {
+      // setLoading(undefined);
+    }
   }
 
   async function handleGetUserReposData() {
@@ -73,6 +75,6 @@ export function useHomePage() {
     setUsernameInput,
     handleGetuserData,
     userRepos,
-    loading,
+    // loading,
   };
 }
